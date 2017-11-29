@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +26,15 @@ public class ReservationController {
 	@Autowired(required=true)
 	ReservationServiceImpl reservationServiceImpl;
 	
-	@RequestMapping(value="/create", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	@RequestMapping(value="/create", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, method=RequestMethod.GET)
 	@ResponseBody
 	ReservationFulfillment createRes() {
+		return reservationServiceImpl.createReservation();
+	}
+	
+	@RequestMapping(value="/createPost", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, method=RequestMethod.POST)
+	@ResponseBody
+	ReservationFulfillment createResPost() {
 		return reservationServiceImpl.createReservation();
 	}
 	
