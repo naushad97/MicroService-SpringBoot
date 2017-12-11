@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: profile-service
+
+server:
+  port: 8001
+  error:
+    whitelabel:
+      enabled: false
+  
+eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+        defaultZone: http://127.0.0.1:8088/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
+          
+logging:
+  level:
+     org:
+       springframework:
+         security: DEBUG  
+         
