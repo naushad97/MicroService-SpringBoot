@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: reservation-service
+    
+server:
+  port: 8002
+  error:
+    whitelabel:
+      enabled: false
+
+eureka:
+  client:
+    register-with-eureka: true
+#    fetch-registry: false
+    serviceUrl:
+        defaultZone: http://127.0.0.1:8088/eureka/
+          
+logging:
+  level:
+     org:
+       springframework:
+         security: DEBUG  

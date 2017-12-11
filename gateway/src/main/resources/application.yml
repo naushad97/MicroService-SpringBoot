@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: service-gateway
+    
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+eureka:
+  client:
+#    register-with-eureka: true
+#    fetch-registry: false  ## this will create error 
+    serviceUrl:
+        defaultZone: http://127.0.0.1:8088/eureka/
+
+logging:
+  level:
+     org:
+       springframework:
+         security: DEBUG  
+
+management:
+  security:
+    enabled: false
+
+zuul:
+  prefix: /ngapi
+  ignoredServices: '*'
+  routes:
+    profile-service:
+      path: /profile/**
+#      stripPrefix: false
+      serviceId: PROFILE-SERVICE
+    reservation-service:
+      path: /reservation/**
+#      stripPrefix: false
+      serviceId: RESERVATION-SERVICE
+#      sensitiveHeaders:
+    addons-service:
+      path: /addonsvc/**
+#      stripPrefix: false
+      serviceId: ADDONS-SERVICE
+#      sensitiveHeaders:
+      
+      

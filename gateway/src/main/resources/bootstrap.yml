@@ -1,0 +1,6 @@
+#spring:
+#  application:
+#    name: nextgen-gateway
+#  cloud:
+#    config:
+#      uri: http://localhost:8888    

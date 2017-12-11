@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: addon-service
+    
+server:
+  port: 8003
+  error:
+    whitelabel:
+      enabled: false
+      
+eureka:
+  client:
+    register-with-eureka: true
+#    fetch-registry: false
+    serviceUrl:
+        defaultZone: http://localhost:8088/eureka/
+
+logging:
+  level:
+     org:
+       springframework:
+         security: DEBUG  
